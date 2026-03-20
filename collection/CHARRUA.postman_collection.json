@@ -1,0 +1,2931 @@
+{
+  "info": {
+    "_postman_id": "257f2e4e-6250-46a5-93b7-600e5ad9c17b",
+    "name": "CHARRUA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44438686",
+    "_collection_link": "https://go.postman.co/collection/44438686-257f2e4e-6250-46a5-93b7-600e5ad9c17b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authorization",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let token = JSON.parse(responseBody).token;",
+                  "pm.collectionVariables.set('VENDAS_BEARER', token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "NTc4Mg.lzTQ1hCepfcQsa8OeZk8GlBvC0tqO20I77WmvvxxFV6ZMijoCd-KExjOSRCq",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"teste@gmail.com\",\n  \"password\": \"thTq0Hupq#\",\n  \"instancia\": \"pdv2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/session/log-in",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "session",
+                "log-in"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"aparecida@simrede.com.br\",\n  \"password\": \"teste123\",\n  \"instancia\": \"pdv2\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/session/log-in",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "session",
+                    "log-in"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"type\": \"bearer\",\n    \"token\": \"Mw.-PdFm9wLMQ9-NOxeF12zOD6GEHe5ihttdEfr5jSLpC_KSRacMtg1I8XjyIec\",\n    \"expires_at\": \"2023-03-08T15:27:02.812-03:00\"\n}"
+            },
+            {
+              "name": "Email inválido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"aparecida@simrede.com.br\",\n  \"password\": \"teste123\",\n  \"instancia\": \"pdv2\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/session/log-in",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "session",
+                    "log-in"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_VALIDATION_FAILURE\",\n    \"message\": \"Envie um email válido!\"\n}"
+            },
+            {
+              "name": "Senha Inválida",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"aparecida@simrede.com.br\",\n  \"password\": \"teste123\",\n  \"instancia\": \"pdv2\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/session/log-in",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "session",
+                    "log-in"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 30 Jun 2023 13:46:26 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "78"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_INVALID_AUTH_PASSWORD\",\n    \"message\": \"Dados enviados são inválidos!\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Esse endpoint é utilizado para fazer o login e obter a chave de acesso aos endpoints a seguir, a chave de acesso possuirá a duração de 24 horas.",
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Venda",
+      "item": [
+        {
+          "name": "Inicializar Venda",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"20912\",\n    \"contingencia\": false,\n    \"data_venda\": \"14/08/2025\",\n    \"hora_venda\": \"10:05:02\",\n    \"tipo_pdv\": \"PDV\",\n    \"identificador_pdv\": \"003\",\n    \"valor_total\": 25,\n    \"voucher\": {\n        \"id_grupo_desconto\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\",\n        \"id_cliente\": \"6c4d26ab-7297-4dff-8280-f75cffdb0133\",\n        \"documento\": \"14002578755\",\n        \"imprime_documento_fiscal\": false,\n        \"informar_documento_fiscal\": false,\n        \"aplicar_brinde_pesquisa\": false,\n        \"limite_expiracao\": \"14/08/2025 11:04:50\",\n        \"identificador\": \"HMPV9PDU\",\n        \"tipo\": \"APP\"\n    },\n    \"data_abastecida\": \"14/08/2025\",\n    \"hora_abastecida\": \"09:57:53\",\n    \"empresa\": {\n        \"cnpj\": \"10353336000191\",\n        \"nome\": \"QUALITY N3\",\n        \"cidade\": \"VILA VELHA\",\n        \"uf\": \"ES\",\n        \"id_empresa\": \"\"\n    },\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 61509,\n            \"descricao_forma_pagamento\": \"dinheiro\",\n            \"valor\": 10\n        },\n        {\n            \"codigo_forma_pagamento\": 23003,\n            \"descricao_forma_pagamento\": \"credito\",\n            \"valor\": 15\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 1.667,\n            \"valor_unitario\": 6,\n            \"produto\": {\n                \"tipo\": \"COMBUSTIVEL\",\n                \"uni_medida\": \"L\",\n                \"nom_produto\": \"GASOLINA COMUM\",\n                \"id_produto_erp\": \"1363448\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"ORLAN GERENTE\",\n                \"id_colaborador_erp\": \"247017\"\n            }\n        },\n        {\n            \"quantidade\": 2.5,\n            \"valor_unitario\": 6,\n            \"produto\": {\n                \"tipo\": \"COMBUSTIVEL\",\n                \"uni_medida\": \"L\",\n                \"nom_produto\": \"GASOLINA COMUM\",\n                \"id_produto_erp\": \"1363448\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"ORLAN GERENTE\",\n                \"id_colaborador_erp\": \"247017\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/venda",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "venda"
+              ]
+            },
+            "description": "Endpoint usado para iniciar o processo da venda."
+          },
+          "response": [
+            {
+              "name": "Venda ok sem desconto",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MGA0002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{dominio}}/pdv/v2/venda",
+                  "host": [
+                    "{{dominio}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:09:37 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1571"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"situacao\": \"Pendente\",\n    \"tipo_pdv\": \"PDV\",\n    \"contingencia\": false,\n    \"hora_venda\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"valor_total\": 56.9,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"valor\": 56.9,\n            \"descricao_forma_pagamento\": \"DINHEIRO\"\n        }\n    ],\n    \"empresa\": {\n        \"id_empresa_erp\": 2,\n        \"cnpj\": \"00000000000000\",\n        \"nome\": \"TESTE\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"id_empresa\": \"4813cf4a-6e1a-4dc1-97a1-e1f4e31dd901\"\n    },\n    \"voucher\": {\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MGA0002U\",\n        \"tipo\": \"APP\"\n    },\n    \"itens\": [\n        {\n            \"produto\": {\n                \"id_produto_erp\": \"4444\",\n                \"nom_produto\": \"GC\",\n                \"grid_produto\": 83752,\n                \"uni_medida\": \"UNI\",\n                \"tipo\": \"L\"\n            },\n            \"quantidade\": 10,\n            \"valor_unitario\": 5.69,\n            \"colaborador\": {\n                \"id_colaborador_erp\": 0,\n                \"nom_colaborador\": \"RIO PARDO\"\n            },\n            \"valor_desconto_unitario\": 0,\n            \"origem\": {\n                \"descricao\": \"Não foi identificado desconto para este produto neste grupo\",\n                \"tipo\": \"grupo_desconto\",\n                \"identificador\": \"c0e2e572-0aee-4502-89a4-4429deecf408\"\n            }\n        }\n    ],\n    \"_id\": \"6405d800e0f1eef55599dbf8\",\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"created_at\": \"2023-03-06T12:09:36.513Z\",\n    \"cliente\": {\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"nom_cliente\": \"Teste\",\n        \"dat_nascimento\": \"Wed Jul 04 2001 00:00:00 GMT-0300 (Brasilia Standard Time)\",\n        \"num_documento\": \"00000000000\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"nom_grupo_desconto\": \"CHARRUA - DEFAULT\",\n        \"id_grupo_desconto_erp\": 102\n    },\n    \"valor_desconto\": 0\n}"
+            },
+            {
+              "name": "Venda ok com desconto",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:37:03 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1557"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"situacao\": \"Pendente\",\n    \"tipo_pdv\": \"PDV\",\n    \"contingencia\": false,\n    \"hora_venda\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"valor_total\": 56.9,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"valor\": 56.9,\n            \"descricao_forma_pagamento\": \"DINHEIRO\"\n        }\n    ],\n    \"empresa\": {\n        \"id_empresa_erp\": 2,\n        \"cnpj\": \"00000000000000\",\n        \"nome\": \"TESTE\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"id_empresa\": \"4813cf4a-6e1a-4dc1-97a1-e1f4e31dd901\"\n    },\n    \"voucher\": {\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"tipo\": \"APP\"\n    },\n    \"itens\": [\n        {\n            \"produto\": {\n                \"id_produto_erp\": \"2382\",\n                \"nom_produto\": \"GC\",\n                \"grid_produto\": 83752,\n                \"uni_medida\": \"UNI\",\n                \"tipo\": \"L\"\n            },\n            \"quantidade\": 10,\n            \"valor_unitario\": 5.69,\n            \"colaborador\": {\n                \"id_colaborador_erp\": 0,\n                \"nom_colaborador\": \"RIO PARDO\"\n            },\n            \"valor_desconto_unitario\": 0.1,\n            \"origem\": {\n                \"descricao\": \"GD-ERP: 102; preço posto; sem migração;  \",\n                \"tipo\": \"grupo_desconto\",\n                \"identificador\": \"c0e2e572-0aee-4502-89a4-4429deecf408\"\n            }\n        }\n    ],\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"created_at\": \"2023-03-06T12:37:02.235Z\",\n    \"cliente\": {\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"nom_cliente\": \"Teste\",\n        \"dat_nascimento\": \"Wed Jul 04 2001 00:00:00 GMT-0300 (Brasilia Standard Time)\",\n        \"num_documento\": \"00000000000\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"nom_grupo_desconto\": \"CHARRUA - DEFAULT\",\n        \"id_grupo_desconto_erp\": 102\n    },\n    \"valor_desconto\": 1\n}"
+            },
+            {
+              "name": "Voucher não existente",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"M5E6002U\",\n        \"id_cliente\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:06:20 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "133"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo APP\",\n    \"details\": \"Gere um novo voucher no aplicativo\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher inválido por identificador cliente",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MGA0002U\",\n        \"id_cliente\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:07:27 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "163"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo APP\",\n    \"details\": \"Identificador do cliente da venda não coincide com o do voucher\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher inválido por identificador de grupo_desconto",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 10e2,\n        \"identificador\": \"MU9C002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:29:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "173"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo APP\",\n    \"details\": \"Identificador do Grupo de Desconto da venda não coincide com o do voucher\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Status diferente de inicializada",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Pendente\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MGA0002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:22:58 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "156"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao conceder desconto, nesta venda já foi concedido o desconto\",\n    \"details\": \"Erro ao conceder desconto\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Tempo de abastecida limite ultrapassado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MU9C002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"05/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:24:49 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "217"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Limite máximo de tempo de abastecida atingida (60 min). Data/hora da abastecida: 05/03/2023/09:04:00 (1460 min)\",\n    \"details\": \"Erro ao validar horário de abastecimento\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Parte do JSON Faltante",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"4444\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MU9C002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:26:59 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "161"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"venda_inicializada validation failed: empresa: Path `empresa` is required.\",\n    \"details\": \"Erro ao Registrar Venda\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher desconto não encontrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH40K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:49:05 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "156"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo DESCONTO\",\n    \"details\": \"Não foi possível localizar o voucher: MB5IW7XH40K7\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher desconto inválido por identificador de grupo_desconto",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 72e7,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:49:35 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "183"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo DESCONTO\",\n    \"details\": \"Identificador do Grupo de Desconto ERP da venda não coincide com o do voucher.\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher desconto inativo",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:51:37 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "120"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo DESCONTO\",\n    \"details\": \"Voucher inativo.\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher desconto tempo de vigência inválido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:52:21 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "133"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo DESCONTO\",\n    \"details\": \"Tempo de vigência inválido.\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Voucher desconto limite de uso excedido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"id_venda\": \"id\",\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 12:53:26 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "127"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao validar voucher do tipo DESCONTO\",\n    \"details\": \"Limite de uso excedido.\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 401,\n    \"message\": \"Esta ação não foi autorizada.\",\n    \"details\": \"Verifique o token enviado.\",\n    \"provider\": \"/pdv/v2/venda\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Atualizar Venda",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"_id\": \"67b8796f7f14919d93668946\",\n\t\"situacao\": \"Pendente\",\n\t\"id_venda\": \"16836\",\n\t\"contingencia\": false,\n\t\"data_venda\": \"21/02/2025\",\n\t\"hora_venda\": \"10:03:22\",\n\t\"tipo_pdv\": \"PDV\",\n\t\"identificador_pdv\": \"003\",\n\t\"valor_total\": 65,\n\t\"voucher\": {\n\t\t\"id_grupo_desconto\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\",\n\t\t\"id_cliente\": \"6c4d26ab-7297-4dff-8280-f75cffdb0133\",\n\t\t\"documento\": \"14002578755\",\n\t\t\"imprime_documento_fiscal\": true,\n\t\t\"informar_documento_fiscal\": false,\n\t\t\"aplicar_brinde_pesquisa\": false,\n\t\t\"limite_expiracao\": \"21/02/2025 11:02:27\",\n\t\t\"identificador\": \"HUVI3FN2\",\n\t\t\"tipo\": \"APP\"\n\t},\n\t\"data_abastecida\": \"21/02/2025\",\n\t\"hora_abastecida\": \"10:03:22\",\n\t\"empresa\": {\n\t\t\"cnpj\": \"07094877000138\",\n\t\t\"nome\": \"QUALITY N3.\",\n\t\t\"cidade\": \"VILA VELHA\",\n\t\t\"uf\": \"ES\"\n\t},\n\t\"forma_pagamento\": [\n\t\t{\n\t\t\t\"codigo_forma_pagamento\": 22998,\n\t\t\t\"descricao_forma_pagamento\": \"DINHEIRO\",\n\t\t\t\"valor\": 20\n\t\t},\n\t\t{\n\t\t\t\"codigo_forma_pagamento\": 22998,\n\t\t\t\"descricao_forma_pagamento\": \"DINHEIRO\",\n\t\t\t\"valor\": 45\n\t\t}\n\t],\n\t\"itens\": [\n\t\t{\n\t\t\t\"quantidade\": 1,\n\t\t\t\"valor_unitario\": 65,\n\t\t\t\"produto\": {\n\t\t\t\t\"tipo\": \"PRODUTO\",\n\t\t\t\t\"uni_medida\": \"UN\",\n\t\t\t\t\"nom_produto\": \"TEQUILA/JOSE/CUERVO/GOLD/750ML.\",\n\t\t\t\t\"id_produto_erp\": \"1364502\"\n\t\t\t},\n\t\t\t\"colaborador\": {\n\t\t\t\t\"nom_colaborador\": \"ORLAN\",\n\t\t\t\t\"id_colaborador_erp\": \"247017\"\n\t\t\t},\n\t\t\t\"valor_desconto_unitario\": 2,\n\t\t\t\"origem\": {\n\t\t\t\t\"descricao\": \"Desconto aplicado no produto\",\n\t\t\t\t\"tipo\": \"com desconto\",\n\t\t\t\t\"identificador\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\"\n\t\t\t}\n\t\t}\n\t]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/v2/venda",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v2",
+                "venda"
+              ]
+            },
+            "description": "Endpoint utilizado para atualizar o conteúdo da venda caso o cliente deseje.\n\nexemplo: Adicionar um novo item para uma venda já existente invés de iniciar uma nova."
+          },
+          "response": [
+            {
+              "name": "Voucher incondizente",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "unknown",
+              "code": 420,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:05:48 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "249"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 420,\n    \"message\": \"Erro ao validar conteúdo da venda: 6405de6ee0f1eef55599dc14\",\n    \"details\": \"Verifique pois informações do cliente e voucher da venda enviada não coincidem com os dados originais da venda\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Venda inexistente",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:06:24 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "148"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Cannot read properties of null (reading 'voucher')\",\n    \"details\": \"Não foi possível localizar venda\",\n    \"provider\": \"/pdv/venda\"\n}"
+            },
+            {
+              "name": "Venda atualizada com sucesso",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:09:24 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1266"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"situacao\": \"Inicializada\",\n    \"tipo_pdv\": \"PDV\",\n    \"contingencia\": false,\n    \"hora_venda\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"valor_total\": 56.9,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"valor\": 56.9,\n            \"descricao_forma_pagamento\": \"DINHEIRO\"\n        }\n    ],\n    \"empresa\": {\n        \"id_empresa_erp\": 2,\n        \"cnpj\": \"00000000000000\",\n        \"nome\": \"TESTE\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\"\n    },\n    \"voucher\": {\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"nom_grupo_desconto\": \"Default\",\n        \"id_grupo_desconto_erp\": 102\n    },\n    \"itens\": [\n        {\n            \"produto\": {\n                \"id_produto_erp\": \"2382\",\n                \"nom_produto\": \"GC\",\n                \"grid_produto\": 83752,\n                \"uni_medida\": \"UNI\",\n                \"tipo\": \"L\"\n            },\n            \"quantidade\": 10,\n            \"valor_unitario\": 5.69,\n            \"colaborador\": {\n                \"id_colaborador_erp\": 0,\n                \"nom_colaborador\": \"RIO PARDO\"\n            },\n            \"valor_desconto_unitario\": 0.1,\n            \"origem\": {\n                \"descricao\": \"GD-ERP: 102; preço posto; sem migração;  \",\n                \"tipo\": \"grupo_desconto\",\n                \"identificador\": \"c0e2e572-0aee-4502-89a4-4429deecf408\"\n            }\n        }\n    ],\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"updated_at\": \"2023-03-06T17:09:22.520Z\",\n    \"valor_desconto\": 1\n}"
+            },
+            {
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 401,\n    \"message\": \"Esta ação não foi autorizada.\",\n    \"details\": \"Verifique o token enviado.\",\n    \"provider\": \"/pdv/v2/venda\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Atualizar Documento Fiscal",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"link_documento_fiscal\": \"teste\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/venda/documentoFiscal",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "venda",
+                "documentoFiscal"
+              ]
+            },
+            "description": "Atualiza o documento fiscal contido na venda, um exemplo de uso seria caso a NF não foi gerado ao mesmo tempo que a venda, assim sendo possível atualizar o campo em questão posteriormente."
+          },
+          "response": [
+            {
+              "name": "Venda inexistente",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"teste4588484\",\n    \"link_documento_fiscal\": \"teste\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/documentoFiscal",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "documentoFiscal"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:10:58 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "160"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Esta ação não foi autorizada.\",\n  \"details\": \"Verifique o token enviado.\",\n  \"provider\": \"/pdv/v2/venda/documentoFiscal\"\n}"
+            },
+            {
+              "name": "Documento fiscal atualizado com sucesso",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"link_documento_fiscal\": \"teste\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/documentoFiscal",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "documentoFiscal"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:12:07 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "86"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "Documento Fiscal Da Venda: 6405de6ee0f1eef55599dc14 Atualizado Com Sucesso"
+            },
+            {
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"link_documento_fiscal\": \"teste\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/documentoFiscal",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "documentoFiscal"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 401,\n    \"message\": \"Esta ação não foi autorizada.\",\n    \"details\": \"Verifique o token enviado.\",\n    \"provider\": \"/pdv/v2/venda/documentoFiscal\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Cancelar Venda",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"_id\": \"689ddf5c8369f35d269c8d2b\",\n    \"situacao\": \"Cancelada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/venda/cancelar",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "venda",
+                "cancelar"
+              ]
+            },
+            "description": "Endpoint utilizado para cancelar a venda."
+          },
+          "response": [
+            {
+              "name": "Campos preenchidos incorretamente",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"teste4747457\",\n    \"situacao\": \"Finalizada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/cancelar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "cancelar"
+                  ]
+                }
+              },
+              "status": "unknown",
+              "code": 420,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:14:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "149"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 420,\n    \"message\": \"O campo situacao deve ser igual a 'Cancelada'\",\n    \"details\": \"Preencha os campos corretamente\",\n    \"provider\": \"/pdv/venda/cancelar\"\n}"
+            },
+            {
+              "name": "Venda não encontrada",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"teste4747457\",\n    \"situacao\": \"Cancelada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/cancelar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "cancelar"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:14:37 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "153"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Esta ação não foi autorizada.\",\n  \"details\": \"Verifique o token enviado.\",\n  \"provider\": \"/pdv/v2/venda/cancelar\"\n}"
+            },
+            {
+              "name": "Venda cancelada com sucesso",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"situacao\": \"Cancelada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/cancelar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "cancelar"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:15:13 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "65"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "Venda: 6405de6ee0f1eef55599dc14 cancelada com sucesso"
+            },
+            {
+              "name": "Venda já cancelada previamente",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"situacao\": \"Cancelada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/cancelar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "cancelar"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:15:30 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "197"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Essa venda ja foi cancelada anteriormente\",\n    \"details\": \"Não foi possível localizar a venda com o id: 6405de6ee0f1eef55599dc14\",\n    \"provider\": \"/pdv/venda/cancelar\"\n}"
+            },
+            {
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"situacao\": \"Cancelada\",\n    \"data_cancelamento\": \"06/03/2023\",\n    \"hora_cancelamento\": \"14:13:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/cancelar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "cancelar"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 401,\n    \"message\": \"Esta ação não foi autorizada.\",\n    \"details\": \"Verifique o token enviado.\",\n    \"provider\": \"/pdv/v2/venda/cancelar\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Finalizar Venda",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"_id\": \"689ddf5c8369f35d269c8d2b\",\n    \"situacao\": \"Finalizada\",\n    \"id_venda\": \"20913.2\",\n    \"contingencia\": false,\n    \"data_venda\": \"14/08/2025\",\n    \"hora_venda\": \"10:07:48\",\n    \"tipo_pdv\": \"PDV\",\n    \"identificador_pdv\": \"003\",\n    \"valor_total\": 24.17,\n    \"voucher\": {\n        \"id_grupo_desconto\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\",\n        \"id_cliente\": \"6c4d26ab-7297-4dff-8280-f75cffdb0133\",\n        \"documento\": \"14002578755\",\n        \"imprime_documento_fiscal\": false,\n        \"informar_documento_fiscal\": false,\n        \"aplicar_brinde_pesquisa\": false,\n        \"limite_expiracao\": \"14/08/2025 11:04:50\",\n        \"identificador\": \"HMPV9PDU\",\n        \"tipo\": \"APP\"\n    },\n    \"data_abastecida\": \"14/08/2025\",\n    \"hora_abastecida\": \"09:57:53\",\n    \"link_documento_fiscal\": \"http://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx?chNFe=32250810353336000191656250000028861000487334&nVersao=100&tpAmb=2&dhEmi=323032352D30382D31345431303A30373A34302D30333A3030&vNF=24.17&vICMS=0.00&digVal=&cIdToken=000001&cHashQRCode=EAD07C38329E37F96B5B87157FA90645C1FB7228\",\n    \"empresa\": {\n        \"cnpj\": \"10353336000191\",\n        \"nome\": \"QUALITY N3\",\n        \"cidade\": \"VILA VELHA\",\n        \"uf\": \"ES\",\n        \"id_empresa\": \"47fe26ca-f0b1-46d0-8a95-b16d29ade918\"\n    },\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 61509,\n            \"descricao_forma_pagamento\": \"dinheiro\",\n            \"valor\": 10\n        },\n        {\n            \"codigo_forma_pagamento\": 23003,\n            \"descricao_forma_pagamento\": \"credito\",\n            \"valor\": 15\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 1.667,\n            \"valor_unitario\": 6,\n            \"produto\": {\n                \"tipo\": \"COMBUSTIVEL\",\n                \"uni_medida\": \"L\",\n                \"nom_produto\": \"GASOLINA COMUM\",\n                \"id_produto_erp\": \"1363448\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"ORLAN GERENTE\",\n                \"id_colaborador_erp\": \"247017\"\n            },\n            \"valor_desconto_unitario\": 0.2,\n            \"origem\": {\n                \"descricao\": \"GD-ERP: ec653dba-0c03-4577-b24f-fb4c5d5f1873; sem migração;\",\n                \"tipo\": \"grupo_desconto\",\n                \"identificador\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\"\n            }\n        },\n        {\n            \"quantidade\": 2.5,\n            \"valor_unitario\": 6,\n            \"produto\": {\n                \"tipo\": \"COMBUSTIVEL\",\n                \"uni_medida\": \"L\",\n                \"nom_produto\": \"GASOLINA COMUM\",\n                \"id_produto_erp\": \"1363448\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"ORLAN GERENTE\",\n                \"id_colaborador_erp\": \"247017\"\n            },\n            \"valor_desconto_unitario\": 0.2,\n            \"origem\": {\n                \"descricao\": \"GD-ERP: ec653dba-0c03-4577-b24f-fb4c5d5f1873; sem migração;\",\n                \"tipo\": \"grupo_desconto\",\n                \"identificador\": \"d8f158db-bb05-4265-ba84-dd34b36bbea0\"\n            }\n        }\n    ],\n    \"data_finalizacao\": \"14/08/2025\",\n    \"hora_finalizacao\": \"10:07:48\",\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"valor_desconto\": 0.83\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/venda/finalizar",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "venda",
+                "finalizar"
+              ]
+            },
+            "description": "Endpoint utilizado para finalizar a venda assim registrando todos consumos e a concluindo."
+          },
+          "response": [
+            {
+              "name": "Campos não incluídos",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Inicializada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/finalizar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "finalizar"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:20:47 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "528"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"venda_finalizada validation failed: valor_desconto: Path `valor_desconto` is required., data_finalizacao: Path `data_finalizacao` is required., hora_finalizacao: Path `hora_finalizacao` is required., responsavel_concessao_desconto: Path `responsavel_concessao_desconto` is required., situacao: `Inicializada` is not a valid enum value for path `situacao`., itens.0.valor_desconto_unitario: Path `valor_desconto_unitario` is required.\",\n    \"details\": \"Erro ao Validar Venda\",\n    \"provider\": \"/pdv/venda/finalizar\"\n}"
+            },
+            {
+              "name": "Venda finalizada com sucesso",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Finalizada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"valor_desconto_unitario\": 0.1,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_finalizacao\": \"06/03/2023\",\n    \"hora_finalizacao\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"valor_desconto\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/finalizar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "finalizar"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 06 Mar 2023 17:22:35 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "66"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "Venda: 6405de6ee0f1eef55599dc14 finalizada com sucesso"
+            },
+            {
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Finalizada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"valor_desconto_unitario\": 0.1,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_finalizacao\": \"06/03/2023\",\n    \"hora_finalizacao\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"valor_desconto\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/v2/venda/finalizar",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "venda",
+                    "finalizar"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 401,\n    \"message\": \"Esta ação não foi autorizada.\",\n    \"details\": \"Verifique o token enviado.\",\n    \"provider\": \"/pdv/v2/venda\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "# Como preencher o JSON da requisição de venda\n\n## Inicialização da venda\n\n#### Exemplo de JSON completo\n\n``` json\n{\n    \"situacao\": \"Inicializada\",\n    \"id_venda\": \"id\",\n    \"contingencia\": false,\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"identificador_pdv\": \"Teste\",\n    \"valor_total\": 56.9,\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"empresa\": {\n        \"cnpj\": \"cnpj\",\n        \"nome\": \"nome\",\n        \"cidade\": \"cidade\",\n        \"uf\": \"uf\"\n    },\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 727,\n        \"identificador\": \"MB5IW7XH00K7\",\n        \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n        \"tipo\": \"DESCONTO\"\n    },\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"produto\": {\n                \"tipo\": \"UNI\",\n                \"uni_medida\": \"L\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ]\n}\n\n```\n\n### Campos\n\n##### id_venda\n\n- \\[STRING\\] Será o campo onde é salvo o idenficador local do PDV da venda em questão (usada apenas para histórico ou para link para equipe de dados)\n    \n\n##### situacao\n\n- \\[STRING\\] Situação em que a venda se encontra (Inicializada, Pendente, Cancelada, Finalizada), no caso de inicialização  \n    deve ser utilizada a situação 'Inicializada'\n    \n\n##### contingencia\n\n- \\[BOOLEAN\\] Se emissão de notas estiver em contingencia vai true senão false\n    \n\n##### hora_venda\n\n- \\[STRING\\] Hora em que a venda foi realizada no formato \"HH:MM:SS\"\n    \n\n##### data_venda\n\n- \\[STRING\\] Data em que a venda foi realizada no formato \"DD/MM/YYYY\"\n    \n\n##### hora_abastecida\n\n- \\[STRING\\] Hora em que a abastecida foi realizada no formato \"HH:MM:SS\"\n    \n\n##### data_abastecida\n\n- \\[STRING\\] Data em que a abastecida foi realizada no formato \"DD/MM/YYYY\"\n    \n\n##### tipo_pdv\n\n- \\[STRING\\] Especifica o tipo de pdv em que a venda foi realizada ex:(PDV, PDV_MOVEL)\n    \n\n##### identificador_pdv\n\n- \\[STRING\\] Especifica o identifcador do pdv em questão\n    \n\n##### valor_total\n\n- \\[DOUBLE\\] Valor total da venda\n    \n\n#### empresa\n\n- \\[OBJECT\\] Objeto que representa a empresa\n    \n\n##### empresa.cnpj\n\n- \\[STRING\\] Cnpj da empresa\n    \n\n##### empresa.nome\n\n- \\[STRING\\] Nome da empresa\n    \n\n##### empresa.cidade\n\n- \\[STRING\\] Cidade da empresa\n    \n\n##### empresa.uf\n\n- \\[STRING\\] Uf da empresa\n    \n\n#### voucher\n\n- \\[OBJECT\\] Aqui deve ser enviado o JSON correspondente ao resultado do endpoint de consulta de voucher app ou consulta de voucher desconto\n    \n\n#### forma_pagamento\n\n- \\[ARRAY\\] Cada objeto do array corresponde a uma forma de pagamento utilizada\n    \n\n##### codigo_forma_pagamento\n\n- \\[INT\\] Identificador da forma de pagamento no PDV\n    \n\n##### descricao_forma_pagamento\n\n- \\[STRING\\] Descrição da forma de pagamento\n    \n\n##### codigo_forma_pagamento\n\n- \\[DOUBLE\\] Valor utilizado a partir dessa forma de pagamento\n    \n\n#### itens\n\n- \\[ARRAY\\] Cada objeto do array corresponde a um item comprado\n    \n\n##### itens.quantidade\n\n- \\[INT\\] Quantidade desse item que foi comprada\n    \n\n##### itens.valor_unitario\n\n- \\[DOUBLE\\] Valor do item em questão\n    \n\n#### itens.produto\n\n- \\[OBJECT\\] Detalhes do produto\n    \n\n##### itens.produto.tipo\n\n- \\[STRING\\] Tipo do produto\n    \n\n##### itens.produto.uni_medida\n\n- \\[STRING\\] Unidade de medida do produto\n    \n\n##### itens.produto.nom_produto\n\n- \\[STRING\\] Nome do produto\n    \n\n##### itens.produto.id_produto_erp\n\n- \\[STRING\\] Identificado do produto no PDV\n    \n\n#### itens.colaborador\n\n- \\[OBJECT\\] Corresponde ao colaborador\n    \n\n##### itens.colaborador.nom_colaborador\n\n- \\[STRING\\] Nome do colaborador\n    \n\n##### itens.colaborador.id_colaborador_erp\n\n- \\[INT\\] Identificador do colaborador no PDV\n    \n\n## Finalização da venda\n\n### Exemplo de JSON completo\n\nPara realizar a finalização da venda devemos adicionar 3 novos campos ao JSON de retorno da inicialização\n\n``` json\n{\n    \"_id\": \"6405de6ee0f1eef55599dc14\",\n    \"id_venda\": \"id\",\n    \"empresa\": {\n        \"cnpj\": \"00000000000000\",\n        \"cidade\": \"TESTE\",\n        \"id_empresa_erp\": \"2\",\n        \"uf\": \"RS\",\n        \"nome\": \"TESTE\"\n    },\n    \"situacao\": \"Finalizada\",\n    \"contingencia\": false,\n    \"forma_pagamento\": [\n        {\n            \"codigo_forma_pagamento\": 1,\n            \"descricao_forma_pagamento\": \"DINHEIRO\",\n            \"valor\": 56.9\n        }\n    ],\n    \"itens\": [\n        {\n            \"quantidade\": 10.0,\n            \"valor_unitario\": 5.69,\n            \"valor_desconto_unitario\": 0.1,\n            \"produto\": {\n                \"tipo\": \"L\",\n                \"uni_medida\": \"UNI\",\n                \"nom_produto\": \"GC\",\n                \"id_produto_erp\": \"2382\"\n            },\n            \"colaborador\": {\n                \"nom_colaborador\": \"RIO PARDO\",\n                \"id_colaborador_erp\": 0\n            }\n        }\n    ],\n    \"voucher\": {\n        \"id_grupo_desconto_erp\": 102,\n        \"identificador\": \"MDHG002U\",\n        \"id_cliente\": \"941aef17-047a-4c48-84ad-4fd3ad909900\",\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"tipo\": \"APP\"\n    },\n    \"grupo_desconto\": {\n        \"id_grupo_desconto\": \"c0e2e572-0aee-4502-89a4-4429deecf408\",\n        \"id_grupo_desconto_erp\": 102,\n        \"nom_grupo_desconto\": \"Default\"\n    },\n    \"hora_venda\": \"09:04:00\",\n    \"tipo_pdv\": \"PDV\",\n    \"valor_total\": 56.9,\n    \"responsavel_concessao_desconto\": \"SIM\",\n    \"data_abastecida\": \"06/03/2023\",\n    \"hora_abastecida\": \"09:04:00\",\n    \"data_finalizacao\": \"06/03/2023\",\n    \"hora_finalizacao\": \"09:04:00\",\n    \"data_venda\": \"06/03/2023\",\n    \"valor_desconto\": 1\n}\n\n```\n\n### Campos\n\n##### _id\n\n- \\[STRING\\] Identificador único da venda que retorna no endpoint de inicializar e deve ser mantido em todos outros endpoints\n    \n\n##### situacao\n\n- \\[STRING\\] Deve ser obrigatóriamente 'Finalizada'\n    \n\n##### hora_finalizacao\n\n- \\[STRING\\] Hora em que a venda foi finalizada no formato \"HH:MM:SS\"\n    \n\n##### data_finalizacao\n\n- \\[STRING\\] Data em que a venda foi finalizada no formato \"DD/MM/YYYY\"",
+      "auth": {
+        "type": "apikey",
+        "apikey": [
+          {
+            "key": "value",
+            "value": "Bearer {{VENDAS_BEARER}}",
+            "type": "string"
+          },
+          {
+            "key": "key",
+            "value": "Authorization",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Voucher",
+      "item": [
+        {
+          "name": "Consulta Voucher APP",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/pdv/v2/voucher-app/HMPV9PDU",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "voucher-app",
+                "HMPV9PDU"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Voucher Inválido",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-app/METH00K7",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-app",
+                    "METH00K7"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Mar 2023 20:18:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "137"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao requisitar hash\",\n    \"details\": \"Por favor, utilize um novo voucher.\",\n    \"provider\": \"/pdv/voucher-app/METH00K7\"\n}"
+            },
+            {
+              "name": "Voucher consultado com sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-app/METH00K7",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-app",
+                    "METH00K7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "plain",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Mar 2023 20:25:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "347"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id_grupo_desconto\": \"44366dd0-ef78-8d7e-9cd2-2823ef2ce243\",\n  \"id_cliente\": \"ceb63548-3fc1-4112-8d7e-24ee738bde2a\",\n  \"id_grupo_desconto_erp\": 727,\n  \"documento\": 12345678910,\n  \"imprime_documento_fiscal\": true,\n  \"informar_documento_fiscal\": true,\n  \"limite_expiracao\": \"03/03/2023 18:09:47\",\n  \"identificador\": \"METH00K7\",\n  \"tipo\": \"APP\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Consulta Voucher DESCONTO",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/v2/voucher-desconto/MKI7US3Q00K1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v2",
+                "voucher-desconto",
+                "MKI7US3Q00K1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Voucher consultado com sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-desconto/MKI7US3Q00K7",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-desconto",
+                    "MKI7US3Q00K7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 08 Mar 2023 14:35:11 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "137"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"identificador\": \"MKI7US3Q00K7\",\n    \"id_grupo_desconto\": \"bf8d855e-3a0c-4aea-ab27-625cb02a3e92\",\n    \"id_grupo_desconto_erp\": 727,\n    \"tipo\": \"DESCONTO\"\n}"
+            },
+            {
+              "name": "Voucher inválido",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-desconto/MKI7US3Q00K1",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-desconto",
+                    "MKI7US3Q00K1"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 08 Mar 2023 14:36:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "153"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Voucher inválido\",\n    \"details\": \"Não foi possível localizar o voucher informado\",\n    \"provider\": \"/pdv/voucher-desconto/MKI7US3Q00K1\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Consulta Voucher INDIVIDUAL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/v2/voucher-individual/METH00",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v2",
+                "voucher-individual",
+                "METH00"
+              ]
+            },
+            "description": "Hash com 6 caracteres. Sendo o primeiro carácter, o prefixo da empresa."
+          },
+          "response": [
+            {
+              "name": "Voucher Inválido",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-individual/METH00K7",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-individual",
+                    "METH00K7"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Mar 2023 20:18:39 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "137"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": 400,\n    \"message\": \"Erro ao requisitar hash\",\n    \"details\": \"Por favor, utilize um novo voucher.\",\n    \"provider\": \"/pdv/voucher-individual/METH00K7\"\n}"
+            },
+            {
+              "name": "Voucher consultado com sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/v2/voucher-individual/METH00K7",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "voucher-individual",
+                    "METH00K7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Mar 2023 20:25:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "name": "Content-Type",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "347"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id_grupo_desconto\": \"44366dd0-ef78-8d7e-9cd2-2823ef2ce243\",\n    \"id_cliente\": \"ceb63548-3fc1-4112-8d7e-24ee738bde2a\",\n    \"id_grupo_desconto_erp\": \"727\",\n    \"identificador\": \"METH00K7\",\n    \"imprime_documento_fiscal\": true,\n    \"informar_documento_fiscal\": true,\n    \"tipo\": \"INDIVIDUAL\"\n}"
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "apikey",
+        "apikey": [
+          {
+            "key": "value",
+            "value": "Bearer {{VENDAS_BEARER}}",
+            "type": "string"
+          },
+          {
+            "key": "key",
+            "value": "Authorization",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/v2/health",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "v2",
+                "health"
+              ]
+            },
+            "description": "Consulte as informações sobre a disponibilidade da aplicação."
+          },
+          "response": [
+            {
+              "name": "Health OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/health",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Mar 2023 20:27:22 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "336"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"healthy\": true,\n    \"report\": {\n        \"env\": {\n            \"displayName\": \"Node Env Check\",\n            \"health\": {\n                \"healthy\": true\n            }\n        },\n        \"appKey\": {\n            \"displayName\": \"App Key Check\",\n            \"health\": {\n                \"healthy\": true\n            }\n        },\n        \"lucid\": {\n            \"displayName\": \"Database\",\n            \"health\": {\n                \"healthy\": true,\n                \"message\": \"All connections are healthy\"\n            },\n            \"meta\": [\n                {\n                    \"connection\": \"pg\",\n                    \"message\": \"Connection is healthy\",\n                    \"error\": null\n                }\n            ]\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forma Pagamento",
+      "item": [
+        {
+          "name": "Cadastro Forma Pagamento Empresa",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"acao\": \"I\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"valor\": 5.5,\n  \"descricao\": \"Dinheiro\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/dados/forma-pagamento",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "dados",
+                "forma-pagamento"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Forma pagamento adicionada",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"I\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Teste\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/forma-pagamento",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "forma-pagamento"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Forma pagamento empresa inserida com sucesso"
+            },
+            {
+              "name": "Forma pagamento alterada",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"E\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Dinheiro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/forma-pagamento",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "forma-pagamento"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Forma pagamento empresa atualizada com sucesso"
+            },
+            {
+              "name": "Forma pagamento removida",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"R\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Dinheiro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/forma-pagamento",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "forma-pagamento"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Forma pagamento empresa excluída com sucesso"
+            },
+            {
+              "name": "Forma Pagamento já inserida",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"I\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"valor\": 5.5,\n  \"descricao\": \"Dinheiro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/dados/forma-pagamento",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "dados",
+                    "forma-pagamento"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Jul 2023 12:01:38 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "146"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_NOT_ACCEPTABLE\",\n    \"message\": \"E_NOT_ACCEPTABLE: Erro ao inserir: Já existe uma relação do código: (1) com a empresa (07473735006970)\"\n}"
+            },
+            {
+              "name": "Forma Pagamento já removida",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"R\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"valor\": 5.5,\n  \"descricao\": \"Dinheiro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/dados/forma-pagamento",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "dados",
+                    "forma-pagamento"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Jul 2023 12:03:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "147"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_NOT_ACCEPTABLE\",\n    \"message\": \"E_NOT_ACCEPTABLE: Erro ao remover: Não existe uma relação do código: (1) com a empresa (07473735006970)\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "# JSON persistência item/forma-pagamento\n\n## Campos\n\n### acao\n\n- [STRING] Ação que o endpoint deve executar (I= inserir, E=editar, R=remover)\n\n### empresa\n\n- [STRING] Cnpj da empresa em questão\n\n### codigo\n\n- [NUMBER] Número para identificação\n\n### descricao\n\n- [STRING] Descrição do vínculo"
+    },
+    {
+      "name": "Item",
+      "item": [
+        {
+          "name": "Cadastro Item Empresa",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{VENDAS_BEARER}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"acao\": \"I\", //I= inserir E=editar R=remover\n    \"empresa\": \"07094877000138\", //cnpj da empresa\n    \"codigo\": 1,\n    \"descricao\": \"Chocolate\",\n    \"valor\": 3.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/pdv/v2/dados/item",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "pdv",
+                "v2",
+                "dados",
+                "item"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Item adicionado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"I\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Pão\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/item",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "item"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Item empresa inserido com sucesso"
+            },
+            {
+              "name": "Item alterado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"E\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Chocolate\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/item",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "item"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Item empresa atualizado com sucesso"
+            },
+            {
+              "name": "Item removido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "name": "Content-Type",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"R\", //I= inserir E=editar R=remover\n  \"empresa\": \"98765432000101\", //cnpj da empresa\n  \"codigo\": 1,\n  \"descricao\": \"Chocolate\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/dados/item",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "dados",
+                    "item"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": "Item empresa excluído com sucesso"
+            },
+            {
+              "name": "Item já inserido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"acao\": \"I\", //I= inserir E=editar R=remover\n    \"empresa\": \"98765432000101\", //cnpj da empresa\n    \"codigo\": 1,\n    \"descricao\": \"Chocolate\",\n    \"valor\": 3.0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/dados/item",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "dados",
+                    "item"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Jul 2023 11:54:16 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "146"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_NOT_ACCEPTABLE\",\n    \"message\": \"E_NOT_ACCEPTABLE: Erro ao inserir: Já existe uma relação do código: (3) com a empresa (07473735006970)\"\n}"
+            },
+            {
+              "name": "item já removido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acao\": \"R\", //I= inserir E=editar R=remover\n    \"empresa\": \"98765432000101\", //cnpj da empresa\n    \"codigo\": 1,\n    \"descricao\": \"Chocolate\",\n    \"valor\": 3.0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/pdv/v2/dados/item",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "pdv",
+                    "v2",
+                    "dados",
+                    "item"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 04 Jul 2023 11:58:06 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "147"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15724800; includeSubDomains"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": \"E_NOT_ACCEPTABLE\",\n    \"message\": \"E_NOT_ACCEPTABLE: Erro ao remover: Não existe uma relação do código: (3) com a empresa (07473735006970)\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "# JSON persistência item/forma-pagamento\n\n## Campos\n\n### acao\n\n- \\[STRING\\] Ação que o endpoint deve executar (I= inserir, E=editar, R=remover)\n    \n\n### empresa\n\n- \\[STRING\\] Cnpj da empresa em questão\n    \n\n### codigo\n\n- \\[NUMBER\\] Número para identificação\n    \n\n### descricao\n\n- \\[STRING\\] Descrição do vínculo"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "TOKEN OBTIDO NO EP DE LOGIN",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "PDV_BASIC",
+      "value": "TElOWDp0aDRpdGJnbzV6WkdRMHlFbUZTcw",
+      "type": "string"
+    },
+    {
+      "key": "PDV_BEARER",
+      "value": "QVBJX0FQUDoyT0pKdlB2aEpwVm9mU1BkTkZKaQ",
+      "type": "string"
+    },
+    {
+      "key": "VENDAS_BEARER",
+      "value": ""
+    }
+  ]
+}
